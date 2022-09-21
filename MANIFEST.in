@@ -1,0 +1,8 @@
+include prosecda/html/index.html
+include prosecda/html/js/
+include prosecda/html/js/d3.v6.min.js
+include prosecda/html/js/d3_script.js
+include prosecda/html/css
+include prosecda/html/css/*
+include prosecda/html/images/
+include prosecda/html/images/*
