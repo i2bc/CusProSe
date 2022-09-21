@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="./css/style.css" rel="stylesheet" type="text/css">
+        <title>ProSeCDA</title>
+        <script type="text/javascript" src="./js/d3.v6.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="hiding-panel">
+            <!-- <div class="info-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle close" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </div> -->
+        </div>
+        
+        <header>
+            <h1>PROSECDA Results</h1>
+        </header>
+
+        <section>
+            <aside>
+                <div class="subtitle-header">List of protein families
+                    <div class="infobox">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>
+                        <div class="infotext">
+                            <p>
+                                This panel is a list of the user-defined protein families for which proteins have been found.
+                            </p>
+                            <p>
+                                Click on a protein family name to select it and update its related informations visible in the other panels.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="nav-content"></div>          
+            </aside>
+
+            <div id="container">
+                 <div id="rule-summary">
+                    <div class="subtitle-header">Rule definition for the family <span class="sp-rulename"></span>
+                        <div class="infobox">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                            <div class="infotext">
+                                <p>
+                                    This panel resumes the <b>user-defined rule</b> for the <b><span class="sp-rulename"></span></b> protein family .
+                                </p>
+                                <p>
+                                    Please note that if no forbidden domains have been specified, only the mandatory table will be shown.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="rule-content">
+                        <!-- <p>The tables below summarizes the rules defining the protein family.
+                        </p> -->
+                    </div>
+
+                    <div id="div-tables">
+                        <div class="rule-table">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="4" class="th-title">MANDATORY</th>
+                                    </tr>
+                                    <tr class="tr-legend">
+                                        <th>Legend</th>
+                                    </tr>
+                                    <tr class="tr-name">
+                                        <th>Name</th>
+                                    </tr>
+                                    <tr class="tr-cutoff">
+                                        <th>E-value cutoff</th>
+                                    </tr>
+                                </tbody>
+                            </table>                        
+                        </div>
+    
+                        <div class="rule-table forbidden-list">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="4" class="th-title">FORBIDDEN</th>
+                                    </tr>
+                                    <tr class="tr-legend-forb">
+                                        <th>Legend</th>
+                                    </tr>
+                                    <tr class="tr-name-forb">
+                                        <th>Name</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    
+                </div>
+
+                <div id="proteins-container">
+                    <div class="subtitle-header">
+                        Most-likely domain architectures matching <span class="sp-rulename"></span> family rule
+                        <div class="infobox">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+
+                            <div class="infotext">
+                                <p>
+                                    This panel list represents the most-likely domain architecture of proteins matching the <b><span class="sp-rulename"></span></b> user-defined rule.
+                                </p>
+                                <p>
+                                    You can click on a protein to select it and see  on the right panel different HMMER informations about domains that matched its sequence.
+                                    Hovering over a domain of the selected protein will highlight its details on the right panel.
+                                </p>
+                                <!-- <p>
+                                    The most-likely domain architecture is the combination of domains that gives the highest score (see documentation here for details about the computational estimation of the highest score).
+                                    Specific HMMER domains informations are given in the details information panel and can be highlighted by hovering over them.
+                                </p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div id="proteins-draw"></div>
+                </div>
+            </div>
+            
+            <div id="detail-container">
+                <div class="subtitle-header"><span class="p-id"></span>
+                    <div class="infobox">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg>
+                        <div class="infotext info-detail">
+                            <!-- <div class="info-header">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle close" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </div> -->
+                            <p>
+                                This panel resumes details about <b><span class="p-id"></span></b>, the selected protein from the most-likely domain architectures panel.
+                            </p>
+                            <p>
+                                Hovering over a line in the table will highlight 
+                                the related domain in the panel representing the most-likely architecture of the protein.
+                            </p>
+                            <p>
+                                Some HMMER informations are detailed in the table for each domain that matched the protein sequence, including those
+                                not present in the most-likely architecture (in italic and red).
+                            </p>
+                            The different HMMER details are:
+                            <ul class="dashed">
+                                <li>the name of the domain/HMM profile (<b>Name</b>)</li>
+                                <li>Coordinates of the domain in the protein sequence(<b>Start</b> and <b>end</b>)</li>
+                                <li>E-values and score reflecting the likelihood of the match(<b>Start</b> and <b>end</b>)</li>
+
+                            </ul>
+                    </div>
+                    </div>
+                </div>
+                <div id="detail-description">                         
+                    <p>- Protein length: <span id="p-length"></span></p>
+                    <p>- Domains in the most-likely architecture: <span id="p-domainInArch"></span></p>
+                    <p>- All domains that matched the protein sequence: <span id="p-totalDomain"></span></p>
+                </div>
+
+                <div id="detail-hmmdomtbl">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="background-color:white;"></th>
+                                <th colspan="5" scope="colgroup">Domain</th>
+                                <th colspan="3" scope="colgroup">HMM profile</th>
+                            </tr>                            
+                            <tr>
+                                <th id="th-name">Name</th>
+                                <th id="th-start">Start</th>
+                                <th id="th-end">End</th>
+                                <th>c-Evalue</th>
+                                <th>i-Evalue</th>
+                                <th id="th-score">Score</th>
+                                <th>Full length</th>
+                                <th>Start</th>
+                                <th>End</th>                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <figure class="header-left">
+                <img class="logo-i2bc" src="./images/i2bc.jpg" alt="logo IBC">
+            </figure>
+        </footer>
+
+        <script type="text/javascript" src="./js/d3_script.js"></script>
+    </body>
+</html>

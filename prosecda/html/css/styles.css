@@ -1,0 +1,157 @@
+header, section, footer, aside, nav, figure, figcaption {
+    display: block;
+}
+
+body {
+    color: black;
+    background-color: white;
+    width: 95%;
+    height: 100%;
+    margin: 25px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+header {
+    border: dashed black 1px;
+    height: 100px;
+}
+
+/* section, aside {
+    display: inline;
+} */
+
+
+/* section {
+    margin: 5px 0px 5px;
+    border: dashed black 1px;
+    height: 600px;
+    float: right;
+    width: 84%;
+    clear: both;
+    border-top-left-radius: 8px;
+} */
+
+section {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    background-color: rgba(199, 235, 0, 0.342);
+    border: 1px solid;
+}
+
+aside {
+    margin: 5px 0px 5px 0px;
+    border: solid rgb(21, 13, 73) 2px;
+    height: 600px;
+    float: left;
+    width: 15%;
+    border-top-left-radius: 8px;
+
+}
+
+/* nav, footer {
+    clear: both;
+} */
+
+aside nav {
+    height: 100%;
+    overflow-y: scroll;
+    border-top-left-radius: 8px;
+
+
+}
+
+#nav-title-bg {
+    background-color: rgb(0, 11, 112);
+}
+
+#nav-title {
+    font-size: large;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    height: 25px;
+    overflow-anchor: auto;
+    border-bottom: 3px ridge darkslateblue ;
+}
+
+.rule-summary {
+    font-size: large;
+    font-weight: bold;
+    color: rgb(21, 13, 73);
+    text-align: center;
+    padding-top: 20px;
+    height: 50px;
+    overflow-anchor: auto;
+}
+
+aside nav {
+    width: auto;
+}
+
+.nav-famlist {
+    padding-left: 10px;
+    text-align: left;
+    padding: 16px;
+    font-weight: bolder;
+    font-size: 12px;
+    width: auto;
+    vertical-align: middle;
+    border-bottom: 0.5px solid black;
+}
+
+div.nav-famlist:hover {
+    background-color: rgba(106, 202, 189, 0.185);
+    box-shadow: 10px 5px 5px gray;
+}
+
+
+footer {
+    border: dashed black 1px;
+    height: 80px;
+}
+
+figure.header-right {
+    float: right;
+    margin-right: 15px;
+    margin-top: 2px;
+    height: 95px;
+}
+
+img.logo-i2bc{
+    height: 75px;
+}
+
+figure.header-left {
+    float: left;
+    margin-left: 15px;
+    margin-top: 2px;
+    height: 95px;
+}
+
+header h1 {
+    text-align: center;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+.protein-component {
+}
+
+div.foreign-table {
+    color: black;
+    overflow: auto;
+}
+
+.my-tooltip {
+    padding-top: 5px;
+}
+
+.mydiv {
+    border-bottom: dashed black 1px;
+}
+
+section:not(.rule-summary) {
+    overflow-y: scroll;
+}

@@ -1,0 +1,19 @@
+site_name: CusProSe documentation
+nav:
+    - Home: index.md
+    - Installation: installation.md
+    - Iterhmmbuild:
+      - Overall procedure: ihb_introduction.md
+      - Usage guideline: ihb_usage.md
+    - Prosecda:
+      - Overall procedure: psd_introduction.md
+      - Usage guideline: psd_usage.md
+
+theme: readthedocs
+markdown_extensions:
+    - footnotes
+    - attr_list
+    - toc:
+        permalink: "#"
+use_directory_urls: false
+extra_css: [css/extra.css]

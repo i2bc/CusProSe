@@ -1,0 +1,461 @@
+html, body {
+    height: 99%;
+    width: 99%;
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+header, section, footer {
+    display: block;
+}
+
+header {
+    /* border: dashed black 1px; */
+    height: 90px;
+}
+
+header h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 700px; 
+    /* border: 1px solid; */
+    margin-top: 5px;
+}
+
+.subtitle-header {
+    background-color: rgba(0, 11, 112, 0.95);
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    height: 30px;
+    padding-top: 7px;
+    border-top-left-radius: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.subtitle-header .infobox {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.bi {
+    position: relative;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.bi-info-circle {
+    cursor: pointer;
+}
+
+.infobox .infotext {
+    visibility: hidden;
+    width: 250px;
+    background-color: rgba(94, 119, 141, 0.95);
+    color: #fff;
+    text-align: justify;
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 0px 10px;
+    border-radius: 6px;
+    border: 1px solid black;
+    /* box-shadow: 2px 2px 4px rgb(95, 95, 95); */
+
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    margin-top: 12px;
+    margin-left: -125px;
+    z-index: 5;
+  }
+
+
+.infobox .infotext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -12px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.infobox .infotext.info-detail {
+    width: 300px;
+    margin-left: -285px;
+}
+
+.infobox .infotext.info-detail::after {
+    margin-left: 124px;
+}
+
+
+.hiding-panel {
+    /* Should take whole screen */
+    position: fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    
+    /* Semi-transparent black */
+    background: black;
+    opacity: 0.0;
+    
+    /* Initial settings */
+    z-index: -1;
+    display: none;
+}
+
+.info-header {
+    height: 100px;
+    margin: 20px;
+}
+
+.hiding-panel .close {
+    color: rgba(175, 212, 214, 0.932);
+    width: 5em;
+    height: 5em;
+    float: right;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+
+#container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid; */
+    /* background-color: rgba(26, 25, 29, 0.267); */
+}
+
+#rule-summary {
+    width: 100%;
+    height: 40%;
+    border: 1px solid;
+    border-top-left-radius: 8px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#proteins-container {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: -2px;
+    border: 1px solid;
+    overflow: auto;
+    overflow-x: hidden;
+    border-top-left-radius: 8px;
+}
+
+#proteins-draw {
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    /* overflow: auto; */
+}
+
+#detail-container {
+    margin-left: 10px;
+    max-width: 100%;
+    width: 85%;
+    height: 100%;
+    border: 1px solid;
+    border-top-left-radius: 8px;
+    overflow-x: auto;
+}
+
+aside {
+    width: 30%;
+    height: 100%;
+    border: solid rgb(21, 13, 73) 1px;
+    border-top-left-radius: 8px;
+    /* background-color: rgb(0, 204, 255); */
+}
+
+aside #nav-content {
+    max-height: 94%;
+    overflow: auto;
+}
+
+aside .nav-famlist {
+    text-align: left;
+    padding: 14px;
+    padding-left: 50px;
+    font-weight: bolder;
+    font-size: 13px;
+    width: auto;
+    vertical-align: middle;
+    border-bottom: 0.5px solid black;
+}
+
+aside .nav-famlist:hover {
+    background-color: rgba(106, 202, 189, 0.185);
+    box-shadow: 10px 5px 5px gray;
+}
+
+.fam-selected {
+    background-color: rgba(106, 202, 189, 0.185);
+}
+
+.fam-selected:hover {
+    background-color: rgba(106, 202, 189, 0.135) !important;
+}
+
+footer {
+    /* border: dashed black 1px; */
+    margin-top: 15px;
+    height: 90px;
+}
+
+figure.header-left {
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 90px;
+}
+
+img.logo-i2bc{
+    border: 1px solid;
+    height: 75px;
+}
+
+.protein-descr {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: small;
+}
+
+.protein-descr:hover {
+    background-color: rgba(232, 215, 253, 0.200);
+    cursor: pointer;
+    box-shadow: 10px 5px 5px gray;
+}
+
+.selected {
+    background-color: rgba(232, 215, 253, 0.400);
+}
+
+.selected:hover {
+    background-color: rgba(232, 215, 253, 0.350)!important;
+}
+
+.rect-hovered {
+    background-color: rgba(130, 130, 130, 0.150);
+}
+
+.tooltip {
+    position: absolute;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td {
+    background-color: white;
+}
+
+table, td, th {
+    border: 1px solid black;
+    font-size: 12px;
+    font-family: Arial, Verdana, sans-serif;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* max-width: 200px; */
+  }
+
+table th {
+    width: 100%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tooltip table {
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+}
+
+.tooltip th {
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: black;
+  }
+
+.tooltip td {
+      padding: 4px 4px 4px 18px;
+      width: 100px;
+}
+
+.tt-col1 {
+      font-weight: bold;
+}
+
+#detail-description {
+    padding-left: 10px;
+    border-bottom: 2px solid black;
+}
+
+#detail-description {
+    margin-top: 10px;
+    padding-bottom: 15px;
+}
+
+#detail-description p {
+    font-size: 14px;
+    margin: 3px
+}
+
+#detail-hmmdomtbl {
+    max-width: 100%;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#detail-hmmdomtbl table {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#detail-hmmdomtbl table th{
+    width: 80px;
+    color: white;
+    background-color: black;
+    border-color: whitesmoke;
+
+}
+
+#detail-hmmdomtbl table td {
+    /* text-align: right;
+    padding-right: 10px; */
+    padding-left: 10px;
+    height: 30px;
+}
+
+#th-name {
+    width: 110px !important;
+    border-left: black;
+}
+
+#th-start {
+    width: 60px !important;
+}
+
+#th-end {
+    width: 60px !important;
+}
+
+#th-score {
+    width: 55px !important;
+}
+
+#rule-content {
+    font-size: 12px;
+}
+
+#rule-content p {
+    padding-left: 10px;
+    margin-top: 5px;
+}
+
+#rule-content ul {
+    margin-top: -8px;
+}
+
+#rule-content ul li {
+    list-style-type: none;
+}
+
+#div-tables {
+    display: block;
+}
+
+.rule-table {
+    width: 100%;
+    height: 100px;
+    /* border: 1px solid; */
+    margin: 10px;
+    margin-bottom: -10px;
+    overflow-x: scroll;
+}
+
+.rule-table table {
+    max-width: 100%;
+    height: 100%;
+}
+
+
+.rule-table th{
+    width: 100px !important;
+    min-width: 100px;
+    max-width: 100px;
+    font-style: italic;
+    height: 100%;
+}
+
+.rule-table td{
+    width: 90px;
+    height: 100%;
+    min-width: 90px;
+    max-width: 90px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.rule-table .th-title {
+    background-color: black;
+    color: white;
+    font-style: normal;
+    padding-left: 7px;
+    width: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    writing-mode: sideways-lr;
+}
+
+.unlikely {
+    font-style: italic;
+    color: red;
+    z-index: 0;
+}
+
+ul.dashed {
+    margin-top: 8px;
+    list-style-type: none;
+}
+
+ul.dashed > li {
+    text-indent: -28px;
+    padding-bottom: 4px;
+}
+
+ul.dashed > li:before {
+    content: "- ";
+    text-indent: -5px;
+}
