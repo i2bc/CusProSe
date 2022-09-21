@@ -1,0 +1,118 @@
+h2 {
+    margin-top: 35px;
+    margin-bottom: 25px;
+    padding: 5px;
+    border-bottom: 2px solid;
+}
+
+ul .note-ref {
+    list-style: none !important;
+}
+
+figure {
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+figcaption {
+    margin-top: 5px;
+    font-style: italic;
+    padding-left: 5px;
+    text-align: left;
+}
+
+.fig-iterhmmbuild {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 70%;
+}
+
+p {
+    text-align: justify;
+}
+
+pre {
+    font-size: 12px;
+}
+
+table.mytable {
+    width: 100%;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.t-header {
+    border-bottom: solid black 0.25px !important;
+
+}
+
+.t-header, .t-data {
+    padding: 10px 5px 10px 5px;
+    vertical-align: middle;
+}
+
+img.align-right {
+    width: 45%;
+    float: right;
+}
+
+table.t-description {
+    width: 100%;
+    margin-top: -8px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+.fig-prosecda {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 90%;
+
+}
+
+sup {
+    margin-left: 2px;
+}
+
+pre.parameters {
+    border-style: solid;
+    border-color: rgb(172, 172, 172);
+    border-width: 0.5px;
+    padding: 8px;
+    padding-bottom: 0px;
+    background-color: rgba(228, 228, 228, 0.377);
+    margin-bottom: 24px;
+    line-height: 20px;
+    overflow-x: auto;
+}
+
+.myul {
+    margin-top: -10px !important;
+}
+
+.myul li {
+    padding-bottom: 8px;
+    text-align: justify;
+    list-style-type: circle !important;
+}
+
+.myul2 {
+    margin-top: -15px !important;
+}
+
+code.inside {
+    background: #f8f8f8 !important;
+    padding: 10px;
+    width: 100% !important;
+    display: block;
+    border: solid 1px #e1e4e5 !important;
+}
+
+.io {
+    color: #E74C3C !important;
+}
