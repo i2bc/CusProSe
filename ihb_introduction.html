@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Overall procedure - CusProSe documentation</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overall procedure";
+        var mkdocs_page_input_path = "ihb_introduction.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> CusProSe documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iterhmmbuild</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="ihb_introduction.html">Overall procedure</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#inputs">Inputs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hmm-building-step">HMM building step</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sequence-enrichment-step">Sequence enrichment step</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#convergence">Convergence</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ihb_usage.html">Usage guideline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Prosecda</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="psd_introduction.html">Overall procedure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="psd_usage.html">Usage guideline</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CusProSe documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Iterhmmbuild &raquo;</li>
+      <li>Overall procedure</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="iterhmmbuild-overall-procedure">IterHMMBuild overall procedure<a class="headerlink" href="#iterhmmbuild-overall-procedure" title="Permanent link">#</a></h1>
+<figure class="fig-iterhmmbuild">
+    <img src="./img/iterhmmbuild_pipeline_v2.png"
+      alt="IterHMMBuild pipeline overview.">
+    <figcaption>
+<b>Figure 2: Pipeline overview of IterHMMBuild</b> 
+    </figcaption>
+</figure>
+
+<p>IterHMMBuild is an iterative search method based on the hmmer program, the aim of which is to provide users with a representative HMM protein profile of interest constructed by an iterative enrichment process starting from a small initial set of related protein sequences.</p>
+<p>The IterHMMBuild procedure starts building an HMM profile from either a set of related protein sequences or a single query sequence. This initial profile is then used to identify homologous sequences in any user-specified protein sequence database. If sequences are found, they are added to the initial query sequences and a new HMM profile model is built. This process is repeated until no new sequences are found (i.e. convergence is reached).</p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<p>Two inputs are required for IterHMMBuild.</p>
+<p>The first input is either a fasta file with at least one protein sequence  (<a href="#iterhmmbuild-overall-procedure">Figure 2</a>) OR a directory location where multiple individual fasta files are stored (<a href="./index.html#fig-1">Figure 1</a>). In the first case, the output will contain an HMM profile representative of the sequences in the fasta file given as input; if a directory is given as input then the HMM profile in the output will be a concatenation of HMM profiles, each corresponding to the fasta files present in the directory.</p>
+<p>The second input is a fasta file of protein database used to enrich initial protein sequence(s) of interest.</p>
+<h2 id="hmm-building-step">HMM building step<a class="headerlink" href="#hmm-building-step" title="Permanent link">#</a></h2>
+<figure>
+<img class="align-right" src="./img/step_hmmbuilding_enrichment.png">
+</figure>
+<p>
+The HMM building is a two-step procedure: a multiple sequence alignment is performed on the input sequences using muscle and the hmmbuild command from hmmer is then used to build the HMM profile from this alignment. However, note that at the first iteration the usearch command is performed on the input sequences to ensure that thoses sequences share no more than 90% (default value) of identity.
+</p>
+
+<h2 id="sequence-enrichment-step">Sequence enrichment step<a class="headerlink" href="#sequence-enrichment-step" title="Permanent link">#</a></h2>
+<p>The previously built HMM profile is searched against the protein database given as input using the hmmsearch command from hmmer. All matching sequences with a E-values<sup>a</sup> less than 0.01 (default value) and an expected accuracy per residue of the alignment<sup>b</sup> above or equal to 0.6 (default value) are retrieved. Those sequences are then merged to the initial input sequences. To ensure that sequences are not redundant, usearch is applied with a threshold identity value of 0.90.</p>
+<div class="admonition note">
+    <p class="first admonition-title">
+        Note
+    </p>
+    <ul class="last">
+        <li class="note-ref"><sup>a</sup> Both conditional and independent E-values from hmmer are evaluated</li>
+        <li class="note-ref"><sup>b</sup> Please see the <a href="http://eddylab.org/software/hmmer3/3.1b2/Userguide.pdf">hmmer documentation</a> for more details about the accuracy</li>
+    </ul>
+</div>
+
+<h2 id="convergence">Convergence<a class="headerlink" href="#convergence" title="Permanent link">#</a></h2>
+<p>Basically, the convergence is reached when the number of sequences at iteration i+1 (Nseq<sub>i+1</sub>) is strictly equal to the number of sequences at iteration i (Nseq<sub>i</sub>). However, because the number of new sequences found after multiple consecutive iterations can be really low, or even negative, a counter is also used to evaluate the convergence status in order to prevent unnecessay iterations (i.e. iterations that will increase the computation time without significantly enrich the number of new sequences). This counter is incremented each time the difference between Nseq<sub>i+1</sub> and Nseq<sub>i</sub> is negative or equal to 1 (default value). The convergence is then also reached when the value of this counter is equal to 3 (default value).</p>
+<h2 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h2>
+<p>An example output is as shown below:</p>
+<pre><b>iterhmmbuild_2020-10-29_13-13-04/</b>
+├── X.hmm
+├── X_seed.clw
+├── X_seed.fa
+├── info.log
+├── <b>iter_1</b>
+│   ├── X_enriched_nr.fasta
+│   ├── X_nr.clw
+│   ├── X_nr.domtblout
+│   ├── X_nr.fa
+│   └── X_nr.hmm
+├── <b>...</b>
+└── <b>iter_6</b>
+    ├── X_enriched_nr.clw
+    ├── X_enriched_nr.domtblout
+    ├── X_enriched_nr.fasta
+    └── X_enriched_nr.hmm
+</pre>
+
+<p>The table below describes the content of the output directory:</p>
+<table class="mytable">
+    <tr>
+        <th class="t-header">File name</th>
+        <th class="t-header">Description</th>
+    </tr>
+    <tr>
+        <td class="t-data">X.hmm</td> 
+        <td class="t-data">Final HMM profile</td> 
+    </tr>
+    <tr>
+        <td class="t-data">X_seed.fa</td> 
+        <td class="t-data">Final sequences used to build X.hmm</td> 
+    </tr>
+    <tr>
+        <td class="t-data">X_seed.clw</td> 
+        <td class="t-data">Multiple alignment (clustal W format) of X_seed.fa</td> 
+    </tr>
+    <tr>
+        <td class="t-data">info.log</td> 
+        <td class="t-data">Log summary of the computation</td> 
+    </tr>
+    <tr>
+        <td class="t-data">iter_1/X_nr.fa</td> 
+        <td class="t-data">Non redundant sequences coming from usearch applied on the input X.fa 
+        (see <a href="./ihb_introduction.html#hmm-building-step">IterHMMBuild procedure</a>)
+        </td>
+    </tr>
+    <tr>
+        <td class="t-data">iter_1/X_nr.clw</td> 
+        <td class="t-data">Multiple alignment of sequences in X_nr.fa
+        </td>
+    </tr>
+    <tr>
+        <td class="t-data">iter_1/X_nr.hmm</td> 
+        <td class="t-data">HMM profile built with X_nr.clw as input
+        </td>
+    </tr>
+    <tr>
+        <td class="t-data">iter_1/X_nr.domtblout</td> 
+        <td class="t-data">Output file of the hmmsearch command
+        </td>
+    </tr>
+    <tr>
+        <td class="t-data">iter_1/X_enriched_nr.fasta</td> 
+        <td class="t-data">Non redundant sequences coming from homologous sequences identified
+        with hmmsearch and initial sequences in X.fa 
+        </td>
+    </tr>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="ihb_usage.html" class="btn btn-neutral float-right" title="Usage guideline">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="installation.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="ihb_usage.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

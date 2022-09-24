@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Overall procedure - CusProSe documentation</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overall procedure";
+        var mkdocs_page_input_path = "psd_introduction.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> CusProSe documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Iterhmmbuild</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="ihb_introduction.html">Overall procedure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="ihb_usage.html">Usage guideline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Prosecda</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="psd_introduction.html">Overall procedure</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#inputs">Inputs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#annotation">Annotation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#selection-of-matching-domains">Selection of matching domains</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resolving-overlapping-domains">Resolving overlapping domains</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#filtering">Filtering</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#output">Output</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="psd_usage.html">Usage guideline</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CusProSe documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Prosecda &raquo;</li>
+      <li>Overall procedure</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="prosecda-overall-procedure">ProSeCDA Overall procedure<a class="headerlink" href="#prosecda-overall-procedure" title="Permanent link">#</a></h1>
+<figure class="fig-prosecda">
+    <img src="./img/prosecda_pipeline.png"
+      alt="ProSeCDA pipeline overview.">
+    <figcaption>
+<b>Figure 2: Pipeline overview of ProSeCDA</b> 
+    </figcaption>
+</figure>
+
+<p>ProSeCDA is a tool that allows to search in a given protein database multiple proteins of interest defined by a user-specified set of domains.</p>
+<p>The first step in ProSeCDA is to annotate a protein database of interest with domains from a user-specified HMM profile database. In the next step the annotated proteins are filtered following a set of rules defined by the user. The rule consists to define one or a set of protein families based on the presence and/or absence of domains. All proteins matching thoses rules are then finally accessible in the output. </p>
+<h2 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h2>
+<p>ProSeCDA requires three inputs:</p>
+<ul>
+<li>a protein database in a fasta format in which the user wants to search proteins of interest based on their domain architecture.</li>
+<li>an HMM domain profile database used to annotate the input protein database. Any HMM domain profile database can be used as long as it is compatible with hmmersearch. </li>
+<li>a YAML file containing the rules, that is a set of protein families defined by the presence and/or absence of specific domain(s). The format of the YAML file is described in <a href="./psd_usage.html">Usage guideline</a>. Please note that domains used to define proteins on interest must be present in the HMM domain profile database.</li>
+</ul>
+<h2 id="annotation">Annotation<a class="headerlink" href="#annotation" title="Permanent link">#</a></h2>
+<h3 id="selection-of-matching-domains">Selection of matching domains<a class="headerlink" href="#selection-of-matching-domains" title="Permanent link">#</a></h3>
+<p>The annotation step is required to assign domains from the HMM profile database matching sequences in the protein database. The annotation procedure uses hmmsearch to search for each of the HMM domain profile present in the YAML rules file against the protein database of interest. All matching sequences with an E-value<sup>a</sup> less than 0.01 (default value) and an expected accuracy per residue of the alignment<sup>b</sup> above or equal to 0.6 (default value) are then retrieved.</p>
+<div class="admonition note">
+    <p class="first admonition-title">
+        Note
+    </p>
+    <ul class="last">
+        <li class="note-ref"><sup>a</sup> Both conditional and independent E-values from hmmer are evaluated</li>
+        <li class="note-ref"><sup>b</sup> Please see the <a href="http://eddylab.org/software/hmmer3/3.1b2/Userguide.pdf">hmmer documentation</a> for more details about the accuracy</li>
+    </ul>
+</div>
+
+<h3 id="resolving-overlapping-domains">Resolving overlapping domains<a class="headerlink" href="#resolving-overlapping-domains" title="Permanent link">#</a></h3>
+<p>To resolve overlapping domains<sup>a</sup>, an approach similar to the heaviest weighted clique-finding method described in <a href="https://academic.oup.com/bioinformatics/article/26/6/745/244708">Orengo <i>et al.</i></a> is used. When multiple matching domains are found for a protein sequence and some of those domains overlap, all possible domain architectures defined by a set of non-overlapping domains are identified, with each domain being assigned a score corresponding to -log(E-value). An alternative score is also used in case the E-value associated with a match is equal to 0.0. In that case, the bit score from hmmer is assigned to each domain instead of the -log(E-value) which cannot be computed.
+The protein is then assigned the most-likely domain architecture which is defined as the combination of non-overlapping domains that gives the highest total score.</p>
+<div class="admonition note">
+    <p class="first admonition-title">
+        Note
+    </p>
+    <ul class="last">
+        <li class="note-ref"><sup>a</sup> We consider that two domains are overlapping if at least 40% of the shortest domain sequence overlap with the other domain.</li>
+    </ul>
+</div>
+
+<h2 id="filtering">Filtering<a class="headerlink" href="#filtering" title="Permanent link">#</a></h2>
+<p>The filtering step searches in all precedently annotated proteins the domain architectures matching those in the set of rules defined by the user. A match with a user-defined family is valid for a protein if its most-likely domain architecture fits the mandatory domains and if no forbidden domains are present. Moreover, if an E-value threshold is specified in the rules for a given mandatory domain, this domain must match with an E-value at least below this threshold.</p>
+<h2 id="output">Output<a class="headerlink" href="#output" title="Permanent link">#</a></h2>
+<p>The output of ProSeCDA has the following architecture:</p>
+<pre><b>prosecda_yyyy-mm-dd_hh-mm-ss/</b>
+├── protein_database_filename.domtblout
+├── info.log
+└── <b>results/</b>
+    ├── <b>family_A1/</b>
+    │   ├── all_matching_proteins.pdf
+    │   ├── protein_id_1.fa
+    │   ├── protein_id_1.pdf
+    │   ├── protein_id_1.xml
+    │   ├── protein_id_2.fa
+    │   ├── protein_id_2.pdf
+    │   └── protein_id_2.xml
+    ├── <b>family_A2/</b>
+    │   ├── all_matching_proteins.pdf
+    │   ├── protein_id_8.fa
+    │   ├── protein_id_8.pdf
+    │   ├── protein_id_8.xml
+    │   └── ...
+    ├── <b>...</b>
+</pre>
+
+<p>The table below describes the content of the output directory:</p>
+<table class="mytable">
+    <tr>
+        <th class="t-header">File/Directory name</th>
+        <th class="t-header">Description</th>
+    </tr>
+    <tr>
+        <td class="t-data">protein_database_filename.domtblout</td> 
+        <td class="t-data">hmmsearch output in domtblout format</td> 
+    </tr>
+    <tr>
+        <td class="t-data">info.log</td> 
+        <td class="t-data">Summary log of the computation</td> 
+    </tr>
+    <tr>
+        <td class="t-data">family_A1/</td> 
+        <td class="t-data">Subdirectory containing detailed files for proteins matching the rule defining 'family A1'</td> 
+    </tr>
+    <tr>
+        <td class="t-data">all_matching_proteins.pdf</td> 
+        <td class="t-data">Figures of all proteins matching the family rule with their most-likely domain architecture</td> 
+    </tr>
+    <tr>
+        <td class="t-data">protein_id_1.fa</td> 
+        <td class="t-data">Fasta sequence of the protein</td> 
+    </tr>
+    <tr>
+        <td class="t-data">protein_id_1.pdf</td> 
+        <td class="t-data">Figure of the protein with all matching domains 
+        </td>
+    </tr>
+    <tr>
+        <td class="t-data">protein_id_1.xml</td> 
+        <td class="t-data">XML file describing the protein
+        </td>
+    </tr>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="ihb_usage.html" class="btn btn-neutral float-left" title="Usage guideline"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="psd_usage.html" class="btn btn-neutral float-right" title="Usage guideline">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="ihb_usage.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="psd_usage.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
