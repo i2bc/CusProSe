@@ -20,6 +20,6 @@ CustomProteinSearch is a python package containing two independent but complemen
 </p>
 
 ## Documentation and installation
-Please see our [documentation](https://nchenche.github.io/cusProSe/) for details about the package and how to [install](https://nchenche.github.io/cusProSe/installation.html) it.
+Please see our [documentation](https://i2bc.github.io/CusProSe/) for details about the package and how to [install](https://i2bc.github.io/CusProSe/installation.html) it.
 
 Note: CusProSE is actually not supported on Windows, we'll fix this later.
