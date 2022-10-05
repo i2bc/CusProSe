@@ -1,5 +1,5 @@
 PKS:
- COMMENT: Polyketide Synthase
+ COMMENT: Polyketide synthase
  CONDITION:
   mandatory:
   - KS
@@ -10,7 +10,7 @@ PKS:
   - A
 
 PKS-like:
- COMMENT: Polyketide Synthase like
+ COMMENT: Polyketide synthase like
  CONDITION:
   mandatory:
   - KS
@@ -19,7 +19,7 @@ PKS-like:
   - PP-binding
 
 PKS-like.2:
- COMMENT: Polyketide Synthase like
+ COMMENT: Polyketide synthase like
  CONDITION:
   mandatory:
   - KS
@@ -28,7 +28,7 @@ PKS-like.2:
   - AT
 
 PKS-like.3:
- COMMENT: Polyketide Synthase like
+ COMMENT: Polyketide synthase like
  CONDITION:
   mandatory:
   - AT
@@ -36,25 +36,16 @@ PKS-like.3:
   forbidden:
   - KS
 
-PKS_type3:
- COMMENT: Polyketide Syntase type III
+t3PKS:
+ COMMENT: Polyketide syntase type III
  CONDITION:
   mandatory:
-  - CHS_like
+  - Chal_synt_C
+  - Chal_synt_N
   forbidden:
-
-
-PKS_type3.2:
- COMMENT: Polyketide Syntase type III
- CONDITION:
-  mandatory:
-  - Chal_sti_synt_C
-  - Chal_sti_synt_N
-  forbidden:
-
 
 NRPS:
- COMMENT: Non-Ribosomal Peptide Synthase
+ COMMENT: Non-Ribosomal Peptide Synthetase
  CONDITION:
   mandatory:
   - C
@@ -63,39 +54,38 @@ NRPS:
   forbidden:
   - KS
   - AT
-
 
 NRPS-like:
- COMMENT: Non-Ribosomal Peptide Synthase like
+ COMMENT: Non-Ribosomal Peptide Synthetase like
  CONDITION:
   mandatory:
   - C
   - A
   forbidden:
   - PP-binding
-
 
 NRPS-like.2:
- COMMENT: Non-Ribosomal Peptide Synthase like
+ COMMENT: Non-Ribosomal Peptide Synthetase like
  CONDITION:
   mandatory:
   - C
   - PP-binding
   forbidden:
   - A
-
+  - KS
 
 NRPS-like.3:
- COMMENT: Non-Ribosomal Peptide Synthase like
+ COMMENT: Non-Ribosomal Peptide Synthetase like
  CONDITION:
   mandatory:
   - A
   - PP-binding
   forbidden:
   - C
+  - KS
 
 PKS-NRPS:
- COMMENT: Hybrides PKS-NRPS
+ COMMENT: Hybrids PKS-NRPS or NRPS-PKS
  CONDITION:
   mandatory:
   - KS
@@ -104,9 +94,8 @@ PKS-NRPS:
   - PP-binding
   forbidden:
 
-
 PKS-NRPS.2:
- COMMENT: Hybrides PKS-NRPS
+ COMMENT: Hybrids PKS-NRPS or NRPS-PKS
  CONDITION:
   mandatory:
   - KS
@@ -117,7 +106,7 @@ PKS-NRPS.2:
   - C
 
 PKS-NRPS-like:
- COMMENT: Hybrides PKS-NRPS like
+ COMMENT: Hybrids PKS-NRPS like
  CONDITION:
   mandatory:
   - KS
@@ -127,88 +116,82 @@ PKS-NRPS-like:
   - PP-binding
 
 DMATS:
- COMMENT: Dimethylallyl tryptophan synthases
+ COMMENT: Dimethylallyl tryptophan synthase
  CONDITION:
   mandatory:
   - Trp_DMAT
   forbidden:
 
-
-Diterp_synthase:
- COMMENT: Diterpene_Synthase
+Diterpene:
+ COMMENT: Diterpene synthase
  CONDITION:
   mandatory:
   - diterpene
   forbidden:
 
-
-Ent_kaurene_synthase:
- COMMENT: Ent_kaurene_Synthase
- CONDITION:
-  mandatory:
-  - ent_kaurene
-  forbidden:
-
-
-Sesquiterpene_synthase:
- COMMENT: Sesquiterpene_Synthase
- CONDITION:
-  mandatory:
-  - sesquiterpene
-  forbidden:
-
-
-PaxC_like_synthase:
- COMMENT: PaxC_like_Synthase
- CONDITION:
-  mandatory:
-  - paxC_like
-  forbidden:
-
-
 Chimeric_TS:
- COMMENT: Chimeric_Terpene_Synthase
+ COMMENT: Chimeric Terpene synthase
  CONDITION:
   mandatory:
   - N_ter_TCdom
   - C_ter_PTdom
   forbidden:
 
+Chimeric_TS.2:
+ COMMENT: Chimeric Terpene synthase
+ CONDITION:
+  mandatory:
+  - sesquiterpene
+  - C_ter_PTdom
+  forbidden:
 
-Squalene_synthase:
- COMMENT: Squalene_synthase
+
+Sesquiterpene:
+ COMMENT: Sesquiterpene synthase
+ CONDITION:
+  mandatory:
+  - sesquiterpene
+  forbidden:
+  - C_ter_PTdom
+
+Sesquiterpene.2:
+ COMMENT: Sesquiterpene synthase
+ CONDITION:
+  mandatory:
+  - N_ter_TCdom
+  forbidden:
+  - C_ter_PTdom
+
+Sesquiterpene_ABA:
+ COMMENT: Sesquiterpene synthase abscisic_acid
+ CONDITION:
+  mandatory:
+  - sesquiterpene_ABA
+  forbidden:
+
+Sesquiterpene_Tri:
+ COMMENT: Sesquiterpene synthase trichodiene
+ CONDITION:
+  mandatory:
+  - trichodiene
+  forbidden:
+
+Squalene:
+ COMMENT: Squalene synthase
  CONDITION:
   mandatory:
   - squalene
   forbidden:
 
-
-Sesquiterpene_synthase:
- COMMENT: Sesquiterpene_synthase
- CONDITION:
-  mandatory:
-  - sesquiterpene
-  forbidden:
-
-
-Squalene_hopene_cyclase:
- COMMENT: Squalene_hopene_cyclase
+Squalene_hopene:
+ COMMENT: Squalene hopene cyclase
  CONDITION:
   mandatory:
   - squalene_hopene
   forbidden:
 
-
-Oxidosqualene_synthase:
- COMMENT: Oxidosqualene_synthase
- CONDITION:
-  mandatory:
-  - oxidosqualene
-  forbidden:
-
-
-Phytoene_synthase:
- COMMENT: Phytoene_synthase
+Phytoene:
+ COMMENT: Phytoene synthase
  CONDITION:
   mandatory:
   - phytoene
